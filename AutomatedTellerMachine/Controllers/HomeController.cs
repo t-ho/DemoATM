@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity.Owin;
 
 namespace AutomatedTellerMachine.Controllers
 {
@@ -18,6 +19,9 @@ namespace AutomatedTellerMachine.Controllers
             var userId = User.Identity.GetUserId();
             var checkingAccountId = db.CheckingAccounts.Where(c => c.ApplicationUserId == userId).First().Id;
             ViewBag.CheckingAccountId = checkingAccountId;
+            var manager = HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            var user = manager.FindById(userId);
+            ViewBag.Pin = user.Pin;
             return View();
         }
 
