@@ -9,7 +9,7 @@ namespace AutomatedTellerMachine.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
             ContextKey = "AutomatedTellerMachine.Models.ApplicationDbContext";
         }
 
