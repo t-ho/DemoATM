@@ -253,6 +253,8 @@
     <Content Include="Scripts\jquery-3.1.1.slim.js" />
     <Content Include="Scripts\jquery-3.1.1.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -301,6 +303,8 @@
     <Content Include="Views\CheckingAccount\Details.cshtml" />
     <Content Include="Views\CheckingAccount\Create.cshtml" />
     <Content Include="Views\Transaction\Deposit.cshtml" />
+    <Content Include="Views\CheckingAccount\List.cshtml" />
+    <Content Include="Views\Home\_ContactThanks.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

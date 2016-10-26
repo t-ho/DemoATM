@@ -15,8 +15,16 @@
     <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
 </address>
 
-<h3>@ViewBag.TheMessage</h3>
-<form method="post">
-    <textarea name="message"></textarea>
-    <input type="submit" value="Send" />
-</form>
+
+<div id="formSection">
+    <h3>@ViewBag.TheMessage</h3>
+    @using (Ajax.BeginForm(new AjaxOptions { HttpMethod = "post", InsertionMode = InsertionMode.Replace, UpdateTargetId = "formSection" }))
+    {
+        <textarea name="message"></textarea>
+        <input type="submit" value="Send" />
+    }
+</div>
+
+@section scripts{
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+}
