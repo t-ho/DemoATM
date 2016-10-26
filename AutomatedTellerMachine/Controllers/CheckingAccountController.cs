@@ -4,11 +4,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
 
 namespace AutomatedTellerMachine.Controllers
 {
+    [Authorize]
     public class CheckingAccountController : Controller
     {
+        private ApplicationDbContext db = new ApplicationDbContext();
         // GET: CheckingAccount
         public ActionResult Index()
         {
@@ -18,13 +21,8 @@ namespace AutomatedTellerMachine.Controllers
         // GET: CheckingAccount/Details
         public ActionResult Details()
         {
-            var checkingAccount = new CheckingAccount
-            {
-                AccountNumber = "0000123456",
-                FirstName = "Toan",
-                LastName = "Ho",
-                Balance = 500
-            };
+            var userId = User.Identity.GetUserId();
+            var checkingAccount = db.CheckingAccounts.Where(c => c.ApplicationUserId == userId).First();
             return View(checkingAccount);
         }
 
