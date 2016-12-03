@@ -36,5 +36,7 @@ namespace AutomatedTellerMachine.Models
         public DbSet<CheckingAccount> CheckingAccounts { get; set; }
 
         public DbSet<Transaction> Transactions { get; set; }
+
+        public DbSet<Transfer> Transfers { get; set; }
     }
 }

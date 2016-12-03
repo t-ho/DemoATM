@@ -14,6 +14,7 @@ namespace AutomatedTellerMachine.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
+            AutomaticMigrationDataLossAllowed = true;
             ContextKey = "AutomatedTellerMachine.Models.ApplicationDbContext";
         }
 
@@ -32,6 +33,23 @@ namespace AutomatedTellerMachine.Migrations
                 context.SaveChanges();
                 userManager.AddToRole(user.Id, "Admin");
             }
+
+            //context.Transactions.Add(new Transaction { Amount = 75, CheckingAccountId = 4 });
+            //context.Transactions.Add(new Transaction { Amount = -25, CheckingAccountId = 4 });
+            //context.Transactions.Add(new Transaction { Amount = 100000, CheckingAccountId = 4 });
+            //context.Transactions.Add(new Transaction { Amount = 19.99m, CheckingAccountId = 4 });
+            //context.Transactions.Add(new Transaction { Amount = 64.40m, CheckingAccountId = 4 });
+            //context.Transactions.Add(new Transaction { Amount = 100, CheckingAccountId = 4 });
+            //context.Transactions.Add(new Transaction { Amount = -300, CheckingAccountId = 4 });
+            //context.Transactions.Add(new Transaction { Amount = 255.75m, CheckingAccountId = 4 });
+            //context.Transactions.Add(new Transaction { Amount = 198, CheckingAccountId = 4 });
+            //context.Transactions.Add(new Transaction { Amount = 2, CheckingAccountId = 4 });
+            //context.Transactions.Add(new Transaction { Amount = 50, CheckingAccountId = 4 });
+            //context.Transactions.Add(new Transaction { Amount = -1.50m, CheckingAccountId = 4 });
+            //context.Transactions.Add(new Transaction { Amount = 6100, CheckingAccountId = 4 });
+            //context.Transactions.Add(new Transaction { Amount = 164.84m, CheckingAccountId = 4 });
+            //context.Transactions.Add(new Transaction { Amount = .01m, CheckingAccountId = 4 });
+
             //  This method will be called after migrating to the latest version.
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 

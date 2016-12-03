@@ -1,0 +1,30 @@
+﻿
+<div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
+    <header class="demo-drawer-header">
+        @Html.Partial("_LoginPartial")
+    </header>
+    <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
+        <a class="mdl-navigation__link" href="@Url.Action("Details", "CheckingAccount")">
+            <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">account_balance</i>Balance Inquiry
+        </a>
+        <a class="mdl-navigation__link" href="@Url.Action("Deposit", "Transaction", new { checkingAccountId = ViewBag.CheckingAccountId })">
+            <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">arrow_upward</i>Deposit
+        </a>
+        <a class="mdl-navigation__link" href="@Url.Action("Withdrawal", "Transaction", new { checkingAccountId = ViewBag.CheckingAccountId })">
+            <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">arrow_downward</i>Withdrawal
+        </a>
+        <a class="mdl-navigation__link" href="@Url.Action("QuickCash", "Transaction", new { checkingAccountId = ViewBag.CheckingAccountId, amount = 100 })">
+            <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">flash_on</i>Quick Cash $100
+        </a>
+        <a class="mdl-navigation__link" href="@Url.Action("Transfer", "Transaction", new { checkingAccountId = ViewBag.CheckingAccountId })">
+            <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">loop</i>Transfer Funds
+        </a>
+        <a class="mdl-navigation__link" href="@Url.Action("Statement", "CheckingAccount", new { id = ViewBag.CheckingAccountId })">
+            <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">print</i>Print Statement
+        </a>
+        <div class="mdl-layout-spacer"></div>
+        <a class="mdl-navigation__link" href="">
+            <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">help_outline</i><span class="visuallyhidden">Help</span>
+        </a>
+    </nav>
+</div>

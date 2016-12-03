@@ -205,20 +205,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201610250529022_InitialCreate.cs" />
-    <Compile Include="Migrations\201610250529022_InitialCreate.Designer.cs">
-      <DependentUpon>201610250529022_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201610250619360_AccountNumberChanges.cs" />
-    <Compile Include="Migrations\201610250619360_AccountNumberChanges.Designer.cs">
-      <DependentUpon>201610250619360_AccountNumberChanges.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CheckingAccount.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Transaction.cs" />
+    <Compile Include="Models\Transfer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CheckingAccountService.cs" />
     <Compile Include="Startup.cs" />
@@ -228,7 +221,12 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\Images\progress.gif" />
+    <Content Include="Content\Images\defaultAvarta.png" />
+    <Content Include="Content\mdl-v1.1.2\material.css" />
+    <Content Include="Content\mdl-v1.1.2\material.js" />
+    <Content Include="Content\mdl-v1.1.2\material.min.css" />
+    <Content Include="Content\mdl-v1.1.2\material.min.js" />
+    <Content Include="Content\styles.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -246,6 +244,12 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\mdl-v1.1.2\package.json" />
+    <Content Include="Content\mdl-v1.1.2\material.min.js.map" />
+    <Content Include="Content\mdl-v1.1.2\material.min.css.map" />
+    <Content Include="Content\mdl-v1.1.2\LICENSE" />
+    <Content Include="Content\mdl-v1.1.2\bower.json" />
+    <None Include="Properties\PublishProfiles\atmachine - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -308,6 +312,13 @@
     <Content Include="Views\Transaction\Deposit.cshtml" />
     <Content Include="Views\CheckingAccount\List.cshtml" />
     <Content Include="Views\Home\_ContactThanks.cshtml" />
+    <Content Include="Views\CheckingAccount\Statement.cshtml" />
+    <Content Include="Views\Transaction\Withdrawal.cshtml" />
+    <Content Include="Views\Transaction\QuickCashInsufficientFunds.cshtml" />
+    <Content Include="Views\Transaction\Transfer.cshtml" />
+    <Content Include="Views\Transaction\_TransferForm.cshtml" />
+    <Content Include="Views\Transaction\_TransferSuccess.cshtml" />
+    <Content Include="Views\Shared\_DrawerPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -320,14 +331,6 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201610250529022_InitialCreate.resx">
-      <DependentUpon>201610250529022_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201610250619360_AccountNumberChanges.resx">
-      <DependentUpon>201610250619360_AccountNumberChanges.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

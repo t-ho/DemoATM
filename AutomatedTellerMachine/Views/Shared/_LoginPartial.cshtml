@@ -1,25 +1,39 @@
 ﻿@using Microsoft.AspNet.Identity
 @using System.Security.Claims
 @if (Request.IsAuthenticated)
-            {
-                var identiy = (ClaimsIdentity)User.Identity;
-                var name = identiy.FindFirstValue(ClaimTypes.GivenName) ?? identiy.GetUserName();
-                using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
-                {
-                    @Html.AntiForgeryToken()
-
-                    <ul class="nav navbar-nav navbar-right">
-        <li>
-            @Html.ActionLink("Hello " + name + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
-        </li>
-        <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
-    </ul>
-    }
-}
-else
 {
-    <ul class="nav navbar-nav navbar-right">
-        <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
-    </ul>
-}
+    <img src="~/Content/Images/defaultAvarta.png" class="demo-avatar" />
+    <div class="demo-avatar-dropdown">
+        @{
+             var identiy = (ClaimsIdentity)User.Identity;
+            var name = identiy.FindFirstValue(ClaimTypes.GivenName) ?? identiy.GetUserName();
+            using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "demo-avatar-dropdown" }))
+            {
+                @Html.AntiForgeryToken()
+
+                <span>
+                    @Html.ActionLink(name, "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+                </span>
+                <div class="mdl-layout-spacer"></div>
+                <button type="button" id="accbtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+                    <i class="material-icons" role="presentation">arrow_drop_down</i>
+                </button>
+                <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="accbtn">
+                    <li class="mdl-menu__item"><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+                    <li class="mdl-menu__item"><i class="material-icons">add</i>Options</li>
+                </ul>
+            }
+        }
+    </div>
+            }
+            else
+            {
+                <div class="row center-block">
+                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
+                            onclick="@("window.location.href='" + Url.Action("Login", "Account", routeValues:null) +"'");">Log in</button>
+                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect"
+                            onclick="@("window.location.href='" + Url.Action("Register", "Account", routeValues:null) +"'");">Register</button>
+                    @*<a href="@Url.Action("Register", "Account", routeValues:null)" id="registerLink">Register</a>
+                    <a href="@Url.Action("Login", "Account", routeValues:null)" id="loginLink">Log in</a>*@
+                </div>
+            }

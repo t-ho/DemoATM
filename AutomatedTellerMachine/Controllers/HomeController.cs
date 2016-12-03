@@ -17,20 +17,27 @@ namespace AutomatedTellerMachine.Controllers
         public ActionResult Index()
         {
             var userId = User.Identity.GetUserId();
-            var checkingAccountId = db.CheckingAccounts.Where(c => c.ApplicationUserId == userId).First().Id;
-            ViewBag.CheckingAccountId = checkingAccountId;
             var manager = HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
             var user = manager.FindById(userId);
+            var checkingAccountId = db.CheckingAccounts.Where(c => c.ApplicationUserId == userId).First().Id;
+            ViewBag.CheckingAccountId = checkingAccountId; 
             ViewBag.Pin = user.Pin;
             return View();
         }
 
-        [ActionName("about-this-atm")]
+        public ActionResult _DrawerPartial()
+        {
+            var userId = User.Identity.GetUserId();
+            var checkingAccountId = db.CheckingAccounts.Where(c => c.ApplicationUserId == userId).First().Id;
+            ViewBag.CheckingAccountId = checkingAccountId;
+            return PartialView("_DrawerPartial");
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
 
-            return View("About");
+            return View();
         }
 
         [HttpPost]

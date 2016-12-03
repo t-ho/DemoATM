@@ -33,6 +33,12 @@ namespace AutomatedTellerMachine.Controllers
             return View("Details", checkingAccount);
         }
 
+        public ActionResult Statement(int id)
+        {
+            var checkingAccount = db.CheckingAccounts.Find(id);
+            return View(checkingAccount.Transactions.ToList());
+        }
+
         public ActionResult List()
         {
             return View(db.CheckingAccounts.ToList());
